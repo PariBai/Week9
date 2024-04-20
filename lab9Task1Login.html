@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(240, 214, 240);
+        }
+        .label{
+            margin-top: 50px;
+            margin-left: 200px;
+            font-size: large;
+        }
+        #login{
+            margin-left: 240px;
+            background-color: burlywood;
+            font-size: large;
+            
+        }
+        
+    </style>
+</head>
+<body> <div>
+    <label class="label" >
+        Username
+    </label>
+    <input type="text" id="username">
+</div>
+<div>
+    <label class="label" >
+        Password
+    </label>
+    <input type="password" id="password">
+</div>
+<div>
+    <button id="login"> Login</button>
+    
+
+</div>
+<div>
+    <p id="msg">
+
+    </p>
+</div>
+
+<script>
+    const btn = document.getElementById("login")
+    const name = document.getElementById("username")
+    const pass = document.getElementById("password") 
+    const m = document.getElementById("msg")
+    
+    const names = JSON.stringify(["pari","surksha"])
+    const passList = JSON.stringify(["123","@#"])
+     localStorage.setItem("myname",names)
+     localStorage.setItem("mypass",passList)
+     const b  = localStorage.getItem("check")
+     
+     if(b=="true"){
+     window.location.href = "dashboard.html"
+     
+     }
+
+    
+    btn.onclick = function(){
+        login(name, pass);
+    };
+    function login( name , pass) {
+     let    n = name.value;
+     let p = pass.value
+     
+     fn = localStorage.getItem("myname")
+     fp = localStorage.getItem("mypass")
+     const nr = JSON.parse(fn)
+     const pr = JSON.parse(fp)
+     
+     let s = 0;
+     for(let i =0; i<nr.length; i++){
+        
+     if(nr[i] == n && pr[i]==p){
+     
+     
+     localStorage.setItem("check", true)
+     window.location.href = "dashboard.html"
+     break;
+    }
+    else
+    s++;}
+  if(s==nr.length){
+  m.innerText = "login failed"
+
+ }
+    }
+
+</script>
+</body>
+
+</html>

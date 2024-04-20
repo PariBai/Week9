@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            border: 1cm solid salmon;
+            
+            background-color: rgb(214, 243, 243);
+            padding: 20PX ;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="margin-right: 200px;">
+    INVITATIONS</h1>
+    <script>
+obj1 = {
+    Name: "Kashish",
+    Age: 21,
+    RSVP: "Yes"
+}
+obj2 = {
+    Name: "Sakshi",
+    Age: 20,
+    RSVP: "No"
+}
+obj3 = {
+    Name: "Mahek",
+    Age: 22,
+    RSVP: "May Be"
+}
+ list = [obj1, obj2 ,obj3]  
+ function generateInvitation(l,...details)  {
+  const [...s] =l
+  s.forEach(element => {
+    const v = document.createElement("P")
+    v.innerHTML = `Name: <b>${element.Name}</b> &nbsp;&nbsp; Age: <b>${element.Age} </b> &nbsp;&nbsp; RSVP: <b>${element.RSVP}</b> <br> ${details}`
+    document.body.appendChild(v)
+    
+  });
+
+ }
+generateInvitation(list,"is cordially invited to party")
+
+    </script>
+</body>
+</html>
